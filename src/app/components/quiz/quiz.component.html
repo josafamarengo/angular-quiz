@@ -1,0 +1,151 @@
+<main
+  class="
+    w-screen
+    flex
+    flex-col
+    items-center
+  "
+>
+  <div>
+    <h1
+      class="
+        text-[min(30vw,_10rem)]
+        font-extrabold
+      "
+    >Quiz</h1>
+  </div>
+
+  <div
+    *ngIf="!finished"
+    class="
+      flex
+      justify-center
+      items-center
+      w-[min(80%,_40rem)]
+      h-[min(20vw,_10rem)]
+      p-4
+      bg-[#F2F2F2]
+      rounded-lg
+    "
+  >
+    <p
+      class="
+        text-[min(5vw,_2rem)]
+        font-bold
+        text-black
+      "
+    >{{ questionSelected.question }}</p>
+  </div>
+
+  <div
+    *ngIf="!finished"
+    class="
+      w-[min(80%,_40rem)]
+
+      bg-violet-500
+      rounded-lg
+
+      mt-4
+      p-4
+
+      space-y-5
+    "
+  >
+    <button
+      *ngFor="let option of questionSelected.options"
+      (click)="playerChoose(option.alias)"
+      class="
+        w-full
+        min-h-14
+      "
+    >{{ option.name }}</button>
+  </div>
+
+  <div
+   *ngIf=finished
+    class="
+      fixed
+      inset-0
+      flex
+      justify-center
+      items-center
+      bg-black
+      bg-opacity-50
+    "
+  >
+    <div
+      class="
+        bg-white
+        text-black
+        rounded-lg
+        p-4
+
+        flex
+        flex-col
+        justify-center
+        items-center
+
+        w-[min(80%,_40rem)]
+      "
+    >
+      <img
+        src="https://picsum.photos/200"
+        alt="Imagem de um gatinho"
+        class="
+          my-4
+          rounded-full
+        "
+      />
+      <strong
+        class="
+          text-3xl
+          font-bold
+        "
+      >
+        {{ answerSelected }}
+      </strong>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus modi hic labore inventore consectetur mollitia necessitatibus fugiat. Iusto at id, fuga iste quos quod et, doloribus recusandae non, dolorem sequi!
+      </p>
+      <button
+        class="
+          bg-violet-600
+          hover:bg-violet-700
+          transition
+          duration-200
+          ease-in-out
+          text-white
+          font-semibold
+          rounded-lg
+          p-2
+          mt-4
+        "
+        (click)="restart()"
+      >Continuar</button>
+    </div>
+  </div>
+</main>
+<footer
+  class="
+    w-full
+    flex
+    justify-center
+    items-center
+
+    fixed
+    bottom-0
+
+    bg-violet-900
+    py-4
+
+    shadow-[0_0_7px_rgba(0,0,0,0.5)]
+  "
+>
+  <p
+    class="
+      text-white
+      text-center
+    "
+  >Feito com ❤️ por <a href="https://josafa.com.br" target="_blank" rel="noopener noreferrer">Josafá Marengo</a>
+  </p>
+</footer>
